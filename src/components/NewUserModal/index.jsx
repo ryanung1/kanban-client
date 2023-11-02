@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 
-function NewUserModal({newUser, setNewUser}) {
+function NewUserModal({newUser, setNewUser, reload, setReload}) {
 
 
     const createBoard = async (title) => {
@@ -40,7 +40,7 @@ function NewUserModal({newUser, setNewUser}) {
         const title = e.target.title.value
         const data = await createBoard(title)
         setNewUser(false)
-        window.location.reload(false)
+        setReload(!reload)
     }
     return (
         <>

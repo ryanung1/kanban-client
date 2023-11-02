@@ -134,7 +134,8 @@ function MainPage() {
   };
 
   return newUser ? (
-    <NewUserModal newUser={newUser} setNewUser={setNewUser} />
+    <NewUserModal newUser={newUser} setNewUser={setNewUser} reload={reload}
+    setReload={setReload}/>
   ) : (
     <motion.div className="flex flex-row h-screen w-screen">
       {taskModalActive ? (
