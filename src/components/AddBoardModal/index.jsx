@@ -44,8 +44,7 @@ function AddBoardModal({addBoardModal, setAddBoardModal, activeColumns, reload, 
         const title = e.target.title.value
         const data = await createBoard(title)
         setAddBoardModal(false)
-        window.location.reload(false)
-
+        setReload(!reload)
     }
     return (
         <>
