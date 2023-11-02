@@ -28,8 +28,8 @@ function Login(){
     }
 
     try {
-      const response = await fetch("http://localhost:3001/users/login", options);
-
+      const response = await fetch("https://kanban-server-sont.onrender.com/users/login", options);
+      
       if(response.status == 200) {
           alert("Correct!"); 
           navigate("/user")

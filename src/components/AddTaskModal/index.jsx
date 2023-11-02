@@ -21,7 +21,7 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
               }
 
               try {
-                const response = await fetch(`http://localhost:3001/boards/1/columns/${columnID}/tasks`, options);
+                const response = await fetch(`https://kanban-server-sont.onrender.com/boards/1/columns/${columnID}/tasks`, options);
                 const data = await response.json();
                 return data
                 
@@ -123,12 +123,12 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
                             {/*body*/}
                             <form onSubmit={(e) => handleFormChange(e)} className='mx-6 my-2 text-grey-medium font-jakarta-medium'>
                                 <div className="mb-6">
-                                    <label htmlFor="title" name="title" className="block mb-2 text-sm font-medium text-grey-medium dark:text-white w-[300px] md:w-[400px]">Title</label>
-                                    <input type="text" id="title" name="title" className="bg-gray-50 border border-gray-300 text-grey-medium text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Task Name" required />
+                                    <label htmlFor="title" name="title" className="block mb-2 text-sm font-medium text-grey-medium w-[300px] md:w-[400px]">Title</label>
+                                    <input type="text" id="title" name="title" className="bg-gray-50 border border-gray-300 text-grey-medium text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="New Task Name" required />
                                 </div>
                                 <div className="mb-6">
-                                    <label htmlFor="description" name="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    <textarea type="textarea" id="description" name="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required >
+                                    <label htmlFor="description" name="description" className="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                                    <textarea type="textarea" id="description" name="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
                                     </textarea>
                                 </div>
                                 <div className="mb-6">

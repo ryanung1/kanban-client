@@ -18,7 +18,7 @@ function AddColumnModal({addBoardModal, setAddBoardModal, activeColumns, reload,
               }
 
               try {
-                const response = await fetch(`http://localhost:3001/boards/${board_id}/columns`, options);
+                const response = await fetch(`https://kanban-server-sont.onrender.com/boards/${board_id}/columns`, options);
                 const data = await response.json();
                 return data
                 
@@ -64,8 +64,8 @@ function AddColumnModal({addBoardModal, setAddBoardModal, activeColumns, reload,
                             {/*body*/}
                             <form onSubmit={(e) => handleFormChange(e)} className='mx-6 my-2 text-grey-medium font-jakarta-medium'>
                                 <div className="mb-6">
-                                    <label htmlFor="title" name="title" className="block mb-2 text-sm font-medium text-grey-medium dark:text-white w-[300px] md:w-[400px]">Title</label>
-                                    <input type="text" id="title" name="title" className="bg-gray-50 border border-gray-300 text-grey-medium text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Column Name" required />
+                                    <label htmlFor="title" name="title" className="block mb-2 text-sm font-medium text-grey-medium w-[300px] md:w-[400px]">Title</label>
+                                    <input type="text" id="title" name="title" className="bg-gray-50 border border-gray-300 text-grey-medium text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Column Name" required />
                                 </div>
 
                                 <div className="flex items-center justify-end p-6  rounded-b">

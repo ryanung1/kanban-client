@@ -30,7 +30,7 @@ function SaveChangesModal({saveChangesModal, setSaveChangesModal, activeBoard, s
               }
 
               try {
-                const response = await fetch(`http://localhost:3001/boards/1/columns/1/tasks/${tasks[i]["task_id"]}`, options);
+                const response = await fetch(`https://kanban-server-sont.onrender.com/boards/1/columns/1/tasks/${tasks[i]["task_id"]}`, options);
                 const data = await response.json();
                 console.log(data)
                 

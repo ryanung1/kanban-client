@@ -26,7 +26,7 @@ export default function Signup(){
     }
 
     try {
-        const response = await fetch("http://localhost:3001/users/register", options);
+        const response = await fetch("https://kanban-server-sont.onrender.com/users/register", options);
 
 
         if(response.status == 201) {

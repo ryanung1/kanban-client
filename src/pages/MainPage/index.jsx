@@ -59,7 +59,7 @@ function MainPage() {
 
       try {
         const response = await fetch(
-          "http://localhost:3001/boards/user",
+          "https://kanban-server-sont.onrender.com/boards/user",
           options
         );
         const data = await response.json();
