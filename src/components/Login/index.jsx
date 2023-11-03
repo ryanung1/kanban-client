@@ -50,8 +50,8 @@ function Login(){
 
 
     return(
-        <form onSubmit={handleSubmit} className="w-4/5 space-y-6">
-        <div className="-space-y-px">
+        <form onSubmit={handleSubmit} className="w-1/3 space-y-8">
+        <div className="">
             {
                 fields.map(field=>
                         <Input

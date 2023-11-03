@@ -49,30 +49,33 @@ export default function Signup(){
 
 
     return(
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="">
-        {
-                fields.map(field=>
-                        <Input
-                            key={field.id}
-                            handleChange={handleChange}
-                            value={signupState[field.id]}
-                            labelText={field.labelText}
-                            labelFor={field.labelFor}
-                            id={field.id}
-                            name={field.name}
-                            type={field.type}
-                            isRequired={field.isRequired}
-                            placeholder={field.placeholder}
-                    />
-                
-                )
-            }
-          <FormAction text="Register" />
+        <div className='flex justify-center items-center w-[33%]'>
+            <form className="w-full" onSubmit={handleSubmit}>
+            <div className="flex flex-col">
+            {
+                    fields.map(field=>
+                            <Input
+                                key={field.id}
+                                handleChange={handleChange}
+                                value={signupState[field.id]}
+                                labelText={field.labelText}
+                                labelFor={field.labelFor}
+                                id={field.id}
+                                name={field.name}
+                                type={field.type}
+                                isRequired={field.isRequired}
+                                placeholder={field.placeholder}
+                        />
+                    
+                    )
+                }
+            <FormAction text="Register" />
+            </div>
+
+            
+
+        </form>
+
         </div>
-
-         
-
-      </form>
     )
 }

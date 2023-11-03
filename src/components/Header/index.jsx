@@ -7,7 +7,7 @@ export default function Header({
     linkUrl="#"
 }){
     return(
-        <div className="mb-10">
+        <div className="">
             <div className="flex justify-center">
                 <img 
                     alt=""
@@ -18,8 +18,8 @@ export default function Header({
                 {heading}
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
-            {paragraph} {' '}
-            <Link to={linkUrl} className="font-medium text-purple-600 hover:text-purple-500">
+            {paragraph} {'   '}
+            <Link to={linkUrl} className="font-medium text-purple-600 hover:text-purple-500 underline">
                 {linkName}
             </Link>
             </p>

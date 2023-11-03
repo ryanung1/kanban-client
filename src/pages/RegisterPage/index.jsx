@@ -3,15 +3,15 @@ import { SignUp, Header } from "../../components"
 
 function RegisterPage() {
   return (
-    <>
-    <Header
+    <div className='flex flex-col h-screen w-screen items-center justify-center'>
+      <Header
         heading="Register to create an account"
         paragraph="Already have an account? "
         linkName="Login"
         linkUrl="/"
        />
        <SignUp />
-  </>
+  </div>
   )
 }
 
