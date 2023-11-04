@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react"
+import { toast } from 'react-hot-toast'
 
 function NewUserModal({newUser, setNewUser, reload, setReload}) {
 
@@ -19,6 +20,7 @@ function NewUserModal({newUser, setNewUser, reload, setReload}) {
               try {
                 const response = await fetch(`https://kanban-server-sont.onrender.com/boards`, options);
                 const data = await response.json();
+                toast.success("First board has been created!")
                 return data
                 
               } catch (error) {

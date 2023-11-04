@@ -4,6 +4,7 @@ import Input from "../Input";
 import FormAction from '../FormAction';
 import FormExtra from '../FormExtra';
 import { useNavigate } from "react-router-dom"
+import { toast } from 'react-hot-toast';
 
 
 const fields = loginFields;
@@ -31,10 +32,10 @@ function Login(){
       const response = await fetch("https://kanban-server-sont.onrender.com/users/login", options);
       
       if(response.status == 200) {
-          alert("Correct!"); 
+          toast.success("Successfully logged in!"); 
           navigate("/user")
       } else {
-          alert("Incorrect credentials");
+          toast.error("Incorrect credentials");
       }
     } catch (error) {
       console.log(error.message)

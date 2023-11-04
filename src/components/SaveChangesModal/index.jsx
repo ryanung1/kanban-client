@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-hot-toast'
 
 function SaveChangesModal({saveChangesModal, setSaveChangesModal, activeBoard, setActiveBoard, activeColumns, setActiveColumns, nextBoardId, setNextBoardId, boardData}) {
 
@@ -32,13 +33,15 @@ function SaveChangesModal({saveChangesModal, setSaveChangesModal, activeBoard, s
               try {
                 const response = await fetch(`https://kanban-server-sont.onrender.com/boards/1/columns/1/tasks/${tasks[i]["task_id"]}`, options);
                 const data = await response.json();
+                // toast.success("Your changes have been successfully saved!")
                 console.log(data)
                 
               } catch (error) {
                 console.log(error.message)
+                return
               }
         }
-
+        toast.success("Your changes have been successfully saved!")
   
       }   
 

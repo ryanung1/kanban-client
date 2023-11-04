@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react"
+import { toast } from 'react-hot-toast'
 
 function AddColumnModal({addBoardModal, setAddBoardModal, activeColumns, reload, setReload, activeBoard, boardData, currentBoardIndex, setCurrentBoardIndex, addColumnModal, setAddColumnModal}) {
     const [board_id, setBoardID] = useState(activeBoard["board_id"])
@@ -20,6 +21,7 @@ function AddColumnModal({addBoardModal, setAddBoardModal, activeColumns, reload,
               try {
                 const response = await fetch(`https://kanban-server-sont.onrender.com/boards/${board_id}/columns`, options);
                 const data = await response.json();
+                toast.success("Column has been created!")
                 return data
                 
               } catch (error) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import  NavModal from "../NavModal"
 import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 function Nav({activeBoard, setActiveBoard, boardData, sideMenu, setActiveColumns, nextBoardId, setNextBoardId, saveChangesModal, setSaveChangesModal, setAddTaskModal, addTaskModal}) {
     const [isMenuActive, setIsMenuActive] = useState(false)
@@ -9,7 +10,7 @@ function Nav({activeBoard, setActiveBoard, boardData, sideMenu, setActiveColumns
 
     const checkEmptyBoard = () => {
         if(activeBoard["columns"].length == 0) {
-            alert("This board is empyty, create a new column first before creating a task")
+            toast.error("This board is empty, create a new column first before creating a task")
         } else {
             setAddTaskModal(true)
         }
@@ -44,7 +45,7 @@ function Nav({activeBoard, setActiveBoard, boardData, sideMenu, setActiveColumns
     // }
 
   return (
-    <header className='bg-white h-[64px] flex justify-center items-center'>
+    <header className='bg-white h-[64px] flex justify-center items-center w-full'>
         <NavModal 
         isMenuActive={isMenuActive} 
         setIsMenuActive={setIsMenuActive}
@@ -57,7 +58,7 @@ function Nav({activeBoard, setActiveBoard, boardData, sideMenu, setActiveColumns
         setNextBoardId={setNextBoardId}
         setSaveChangesModal={setSaveChangesModal}
         />
-        <div className='w-full bg-white h-full flex flex-row justify-between px-4 items-center'>
+        <div className='w-full bg-white h-full flex flex-row justify-between px-4 items-center border-b-[1px] border-grey-light-lines'>
             <div className={sideMenu ? "flex flex-row  items-center h-full w-[65%]" : "flex flex-row  items-center h-full w-[75%]"}>
                 <img src="assets/logo-mobile.svg" className='mr-3 md:hidden'></img>
                 {/* For Mobile */}

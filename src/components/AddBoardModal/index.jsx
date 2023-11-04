@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast"
 
 function AddBoardModal({addBoardModal, setAddBoardModal, activeColumns, reload, setReload, activeBoard, boardData, currentBoardIndex, setCurrentBoardIndex}) {
     const [board_id, setBoardID] = useState(activeBoard["board_id"])
-    console.log(board_id)
+    // console.log(board_id)
 
     const createBoard = async (title) => {
             const newBoard = {
@@ -21,7 +21,7 @@ function AddBoardModal({addBoardModal, setAddBoardModal, activeColumns, reload, 
               try {
                 const response = await fetch(`https://kanban-server-sont.onrender.com/boards`, options);
                 const data = await response.json();
-                console.log(data)
+                console.log("THIS IS THE DATA",data)
                 toast.success("Board Created Successfully")
                 return data
                 
@@ -44,7 +44,7 @@ function AddBoardModal({addBoardModal, setAddBoardModal, activeColumns, reload, 
         const title = e.target.title.value
         const data = await createBoard(title)
         setAddBoardModal(false)
-        setReload(!reload)
+        setReload(!reload)        
     }
     return (
         <>

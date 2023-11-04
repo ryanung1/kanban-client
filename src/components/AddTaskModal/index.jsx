@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 
-function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, setReload}) {
+function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, setReload, activeBoard, boardData, setCurrentBoardIndex}) {
+    const [board_id, setBoardID] = useState(activeBoard["board_id"])
     const [subtaskList, setSubtaskList] = useState([])
     const [columnID, setColumnID] = useState(activeColumns[0]["column_id"])
 
@@ -47,7 +49,7 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
           }
         
           try {
-            const response = await fetch(`http://localhost:3001/boards/1/columns/1/tasks/${task_id}/subtasks`, options);
+            const response = await fetch(`https://kanban-server-sont.onrender.com/boards/1/columns/1/tasks/${task_id}/subtasks`, options);
             const data = await response.json();
             return data
             
@@ -82,6 +84,15 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
         setColumnID(column_id)
     }
 
+    const findIndex = (id) => {
+        for(let i=0; i<boardData.length; i++) {
+            if(boardData[i]["board_id"] == id) {
+                return i
+            }
+        }
+
+    }
+
     const handleFormChange = async (e) => {
         e.preventDefault()
         const title = e.target.title.value
@@ -92,14 +103,19 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
         // If subtaskList is empty, return
         // else: for each entry in subList create a subtask and assign it to the task_id that has been returned from previous post request
         if (subtaskList.length == 0) {
-            null
+            toast.success("New task has been added!")
+
 
         } else {
             for(let i = 0; i<subtaskList.length; i++) {
                 const subtask_name = subtaskList[i]["subtask"]
                 await createSubtasks(task_id, subtask_name)
             }
+            toast.success("Task and subtasks have been added!")
+
         }
+        const index = findIndex(board_id)
+        setCurrentBoardIndex(index)
         setReload(!reload)
         setAddTaskModal(false)
     }

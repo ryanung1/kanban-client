@@ -12,6 +12,7 @@ import {
 } from "../../components";
 import { AnimatePresence, easeIn, motion } from "framer-motion";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DotLoader from "react-spinners/DotLoader"
 
 function MainPage() {
   //Stores All board data
@@ -259,7 +260,7 @@ function MainPage() {
                 },
               },
             }}
-            className="hidden md:flex md:visible min-w-[220px] max-w-[250px] justify-center border-r-[1px] border-grey-light-lines"
+            className={isLoading ? "hidden" : "hidden md:flex md:visible min-w-[22%] max-w-[22%] lg:min-w-[18%] lg:max-w-[18%] xl:min-w-[15%] xl:max-w-[15%] justify-center border-r-[1px] border-grey-light-lines"}
           >
             <SideMenu
               sideMenu={sideMenu}
@@ -299,7 +300,7 @@ function MainPage() {
         )}
       </AnimatePresence>
       {!isLoading ? 
-      <div className="bg-grey-light-background h-full w-screen flex flex-col">
+      <div className={sideMenu ? "bg-grey-light-background h-full w-screen md:w-[78%] lg:w-[82%] xl:w-[85%] flex flex-col" : "bg-grey-light-background h-full w-screen flex flex-col"}>
           <Nav
             boardData={boardData}
             activeBoard={activeBoard}
@@ -354,8 +355,9 @@ function MainPage() {
       
       
       : 
-      <div className="h-full w-screen flex justify-center items center mt-44">
-        <h1>Loading your tasks...</h1>
+      <div className="h-full w-screen flex flex-col justify-center items-center">
+        <h1 className="font-jakarta">Loading your tasks...</h1>
+        <DotLoader className="mt-4" color="#635FC7"/>
 
       </div>
 }

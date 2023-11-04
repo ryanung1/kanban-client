@@ -3,6 +3,7 @@ import { signupFields } from "../../constants/formFields"
 import FormAction from "../FormAction";
 import Input from "../Input";
 import { useNavigate } from "react-router-dom"
+import { toast } from 'react-hot-toast';
 
 const fields = signupFields;
 let fieldsState = {};
@@ -30,10 +31,10 @@ export default function Signup(){
 
 
         if(response.status == 201) {
-            alert("Correct!"); 
+            toast.success("Successfully created account!"); 
             navigate("/")
         } else {
-            alert("Incorrect credentials");
+            toast.error("Something went wrong.");
         }
     } catch (error) {
         console.log(error.message)
