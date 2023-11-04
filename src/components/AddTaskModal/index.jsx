@@ -99,6 +99,7 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
         const title = e.target.title.value
         const description = e.target.description.value
         const data = await createTask(title, description)
+        console.log(data)
         const task_id = (data[0]["task_id"])
 
         // If subtaskList is empty, return

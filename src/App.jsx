@@ -11,8 +11,8 @@ function App() {
     <Routes>
 
       <Route path="/" element={<PageWrapper/>}/>
-        <Route index element={<LoginPage />} />
-        <Route path="/signup" element={<RegisterPage/>}/>
+        <Route index element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage/>}/>
         <Route path="/user" element={<MainPage /> }/>
 
     </Routes>
