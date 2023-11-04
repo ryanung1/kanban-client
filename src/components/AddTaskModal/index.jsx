@@ -6,6 +6,7 @@ function AddTaskModal({addTaskModal, setAddTaskModal, activeColumns, reload, set
     const [board_id, setBoardID] = useState(activeBoard["board_id"])
     const [subtaskList, setSubtaskList] = useState([])
     const [columnID, setColumnID] = useState(activeColumns[0]["column_id"])
+    const [fetchLoading, setFetchLoading] = useState(false)
 
 
     const createTask = async (title, description) => {
