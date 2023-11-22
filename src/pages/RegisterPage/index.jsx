@@ -8,7 +8,7 @@ function RegisterPage() {
         heading="Register to create an account"
         paragraph="Already have an account? "
         linkName="Login"
-        linkUrl="/"
+        linkUrl="/login"
        />
        <SignUp />
   </div>
